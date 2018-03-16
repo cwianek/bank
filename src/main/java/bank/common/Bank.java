@@ -5,17 +5,17 @@ import java.util.List;
 
 public class Bank {
 
-    List<BankAccount> bankAccountList = new ArrayList<BankAccount>();
+    List<Account> accountList = new ArrayList<Account>();
     List<Operation> operationList = new ArrayList<Operation>();
 
     public BankAccount addAccount(User user){
         BankAccount bankAccount = new BankAccount(user);
-        this.bankAccountList.add(bankAccount);
+        this.accountList.add(bankAccount);
         return bankAccount;
     }
 
-    public List<BankAccount> getBankAccountList() {
-        return bankAccountList;
+    public List<Account> getAccountList() {
+        return accountList;
     }
 
     public List<Operation> getOperationList() {
