@@ -1,4 +1,5 @@
 package bank.common;
 
-public class Interest {
+public interface Interest {
+
 }

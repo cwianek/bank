@@ -6,8 +6,12 @@ public class Operation {
 
     private OperationType type;
     private BigDecimal amount;
+    private Object source;
+    private Object destination;
 
-    public Operation(BigDecimal amount, OperationType type) {
+    public Operation(Object source, Object destination, BigDecimal amount, OperationType type) {
+        this.source = source;
+        this.destination = destination;
         this.amount = amount;
         this.type = type;
     }

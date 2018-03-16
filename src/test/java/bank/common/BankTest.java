@@ -10,7 +10,7 @@ public class BankTest {
         User user = new User(1);
         Bank bank = new Bank();
         bank.addAccount(user);
-        assertTrue(bank.getBankAccountList().size() == 1);
+        assertTrue(bank.getAccountList().size() == 1);
     }
 
 
