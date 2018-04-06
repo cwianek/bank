@@ -29,12 +29,12 @@ public class CloseInvestmentOrCreditOperation extends Operation {
         for (Operation operation : product.getOperationHistory().getOperationList()) {
             if (operation.type == OperationType.CREDIT_CREATE) {
                 ((Credit) product).setClosed(true);
-                float value = - operation.amount * (1 + (float) product.getInterest().getRate() / 100);
-                this.account.changeBalance(value);
+                ((Credit) product).getInterest().calculate(product);
+                this.account.changeBalance(-((Credit) product).getBalance());
             } else if (operation.type == OperationType.INVESTMENT_CREATE) {
                 ((Investment) product).setClosed(true);
-                float value = operation.amount + operation.amount * (1 + (float) product.getInterest().getRate() / 100);
-                this.account.changeBalance(value);
+                ((Investment) product).getInterest().calculate(product);
+                this.account.changeBalance(((Investment) product).getBalance());
             }
         }
         return 0;

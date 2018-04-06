@@ -16,22 +16,13 @@ public class BankAccount extends Product implements IAccount {
         innerProducts = new ArrayList<IProduct>();
     }
 
-    public void setBalance(float amount) {
-        this.balance = amount;
-    }
 
-    public float getBalance() {
-        return balance;
-    }
+
 
     public void doOperation(Operation operation) {
         operation.execute(this);
         history.add(operation);
         Bank.getBankHistory().add(operation);
-    }
-
-    public void changeBalance(float amount) {
-        this.balance += amount;
     }
 
     public List<IProduct> getInnerProducts() {

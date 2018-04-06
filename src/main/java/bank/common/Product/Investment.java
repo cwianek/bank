@@ -1,25 +1,18 @@
 package bank.common.Product;
 
 import bank.common.Bank.IAccount;
-import bank.common.Operation.Operation;
-import bank.common.Operation.OperationHistory;
-import bank.common.Product.IProduct;
-import bank.common.Product.Product;
-import bank.common.User;
-
-import java.math.BigDecimal;
-import java.util.Date;
+import bank.common.Interest.Interest;
 
 public class Investment extends Product implements IProduct {
 
     int duration;
     boolean closed;
 
-    public Investment(IAccount account, int duration, int rate) {
+    public Investment(IAccount account, int duration, Interest interest) {
         super(account.getOwner());
         this.duration = duration;
         this.closed = false;
-        this.interest = new Interest(rate);
+        this.interest = interest;
     }
 
     public void setClosed(boolean closed) {

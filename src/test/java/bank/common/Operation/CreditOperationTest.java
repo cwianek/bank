@@ -2,6 +2,7 @@ package bank.common.Operation;
 
 import bank.common.Bank.BankAccount;
 import bank.common.Bank.IAccount;
+import bank.common.Interest.LinearInterest;
 import bank.common.User;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +15,8 @@ public class CreditOperationTest {
     @Test
     void creditProductAddTest() {
         IAccount account = new BankAccount(new User(0));
-        new CreditOperation(account,1000, 2, 10);
+
+        new CreditOperation(account,1000, 2, new LinearInterest(3));
         assertTrue(account.getInnerProducts().size() == 1);
     }
 }

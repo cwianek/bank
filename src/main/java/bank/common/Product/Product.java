@@ -1,5 +1,6 @@
 package bank.common.Product;
 
+import bank.common.Interest.Interest;
 import bank.common.Operation.OperationHistory;
 import bank.common.User;
 import bank.common.Utils;
@@ -24,6 +25,18 @@ public abstract class Product implements IProduct {
         this.history = new OperationHistory();
         this.id = Utils.getUniqueId();
         this.innerProducts = new ArrayList<>();
+    }
+    public void setBalance(float amount) {
+        this.balance = amount;
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+
+    public void changeBalance(float amount) {
+        this.balance += amount;
     }
 
     public int getId() {
