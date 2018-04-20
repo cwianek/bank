@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bank {
-
+    private String ibanId;
     private List<IAccount> accounts;
     private static OperationHistory bankHistory = new OperationHistory();
-
+    private static Integer id = 0;
     Bank(){
+        ibanId = id.toString();  id++;
         accounts = new ArrayList<IAccount>();
     }
 
@@ -28,6 +29,7 @@ public class Bank {
         }
         return null;
     }
+
 
     public static OperationHistory getBankHistory() {
         return bankHistory;
