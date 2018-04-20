@@ -14,10 +14,13 @@ public class DifferentInterest implements Interest {
 
     @Override
     public void calculate(IProduct ip) {
-        boolean LowestRange = ip.getBalance() <= thresholdLow;
-        boolean MediumRange = ip.getBalance() > thresholdLow && ip.getBalance() <= thresholdHigh;
-        if( ){//TODO:LOL Zrobić coś bo tak
-
+        boolean mediumRange = ip.getBalance() > thresholdLow && ip.getBalance() <= thresholdHigh;
+        boolean highRange = ip.getBalance() > thresholdHigh;
+        if( mediumRange ){
+            rate += 0.1*rate;
+        }
+        else if(highRange) {
+            rate+= 0.2*rate;
         }
         ip.changeBalance(ip.getBalance()*((float) this.rate/100));
     }

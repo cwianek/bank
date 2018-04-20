@@ -1,5 +1,8 @@
 package bank.common;
 
+import bank.common.Interest.Interest;
+import bank.common.Operation.Operation;
+
 import java.math.BigDecimal;
 
 public interface Account {
