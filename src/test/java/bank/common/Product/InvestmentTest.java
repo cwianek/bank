@@ -20,7 +20,7 @@ public class InvestmentTest {
         User user = new User(0);
         IAccount account = new BankAccount(user);
         account.setBalance(1000);
-        new InvestmenOperation(account, 1000, 2, new DifferentInterest(10));
+        new InvestmenOperation(account, 1000, 2, new DifferentInterest(15));
         assertTrue(account.getBalance() == 0);
     }
 
