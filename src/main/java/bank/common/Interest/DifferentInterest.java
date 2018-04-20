@@ -4,7 +4,7 @@ import bank.common.Product.IProduct;
 
 public class DifferentInterest implements Interest {
 
-    int rate;
+    float rate;
     int thresholdLow = 10000;
     int thresholdMed = 15000;
     int thresholdHigh = 20000;
@@ -14,10 +14,14 @@ public class DifferentInterest implements Interest {
 
     @Override
     public void calculate(IProduct ip) {
-        boolean LowestRange = ip.getBalance() <= thresholdLow;
-        boolean MediumRange = ip.getBalance() > thresholdLow && ip.getBalance() <= thresholdHigh;
-        if( ){//TODO:LOL Zrobić coś bo tak
-
+        float newRate = rate;
+        boolean highestRange = ip.getBalance() > thresholdHigh;
+        boolean mediumRange = ip.getBalance() > thresholdLow && ip.getBalance() <= thresholdHigh;
+        if(mediumRange ){
+            newRate += rate*0.1;
+        }
+        else if (highestRange){
+            newRate += rate*0.2;
         }
         ip.changeBalance(ip.getBalance()*((float) this.rate/100));
     }
