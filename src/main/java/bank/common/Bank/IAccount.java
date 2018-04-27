@@ -8,7 +8,7 @@ import java.util.List;
 public interface IAccount extends IProduct {
     void doOperation(Operation operation);
 
+    List<IProduct> getInnerProducts();
 
-
-    public List<IProduct> getInnerProducts();
+    boolean setIban(String bankIban);
 }

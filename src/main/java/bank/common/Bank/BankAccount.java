@@ -10,14 +10,12 @@ import java.util.List;
 
 public class BankAccount extends Product implements IAccount {
     protected List<IProduct> innerProducts;
+    private String iban;
 
     public BankAccount(User user) {
         super(user);
         innerProducts = new ArrayList<IProduct>();
     }
-
-
-
 
     public void doOperation(Operation operation) {
         operation.execute(this);
@@ -27,5 +25,11 @@ public class BankAccount extends Product implements IAccount {
 
     public List<IProduct> getInnerProducts() {
         return innerProducts;
+    }
+
+
+    public boolean setIban(String bankIban) {
+        iban = bankIban;
+        return true;
     }
 }

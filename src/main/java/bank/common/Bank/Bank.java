@@ -11,6 +11,7 @@ public class Bank {
     private List<IAccount> accounts;
     private static OperationHistory bankHistory = new OperationHistory();
     private static Integer id = 0;
+    private static Integer accountsAmount = 0;
     Bank(){
         ibanId = id.toString();  id++;
         accounts = new ArrayList<IAccount>();
@@ -18,8 +19,27 @@ public class Bank {
 
     public IAccount addAccount(User user){
         IAccount bankAccount = new BankAccount(user);
+        bankAccount.setIban(ibanCreate());
         this.accounts.add(bankAccount);
         return bankAccount;
+    }
+
+    private String ibanCreate()
+    {
+        String iban;
+        iban = ibanId + accountsAmount.toString();
+        if(ibanValidate())
+        {
+            accountsAmount++;
+            return iban;
+        }
+        return null;
+    }
+
+    private boolean ibanValidate()
+    {
+        return true;
+        //implement validation
     }
 
     public IAccount getAccount(User user){
