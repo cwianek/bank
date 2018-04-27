@@ -2,6 +2,7 @@ package bank.common.Product;
 
 import bank.common.Bank.BankAccount;
 import bank.common.Bank.IAccount;
+import bank.common.BankExceptions.BankException;
 import bank.common.Interest.DifferentInterest;
 import bank.common.Interest.LinearInterest;
 import bank.common.Operation.CreditOperation;
@@ -16,7 +17,7 @@ import static org.junit.Assert.*;
 public class InvestmentTest {
 
     @Test
-    void investmentTest() {
+    void investmentTest() throws BankException {
         User user = new User(0);
         IAccount account = new BankAccount(user);
         account.setBalance(1000);

@@ -1,5 +1,6 @@
 package bank.common.Interest;
 
+import bank.common.BankExceptions.BankException;
 import bank.common.Product.IProduct;
 
 public class DifferentInterest implements Interest {
@@ -13,7 +14,7 @@ public class DifferentInterest implements Interest {
     }
 
     @Override
-    public void calculate(IProduct ip) {
+    public void calculate(IProduct ip) throws BankException {
         float newRate = rate;
         boolean highestRange = ip.getBalance() > thresholdHigh;
         boolean mediumRange = ip.getBalance() > thresholdLow && ip.getBalance() <= thresholdHigh;

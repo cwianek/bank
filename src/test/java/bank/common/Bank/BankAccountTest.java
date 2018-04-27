@@ -1,5 +1,6 @@
 package bank.common.Bank;
 
+import bank.common.BankExceptions.BankException;
 import bank.common.Operation.WithdrawOperation;
 import bank.common.User;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +26,7 @@ public class BankAccountTest {
     }
 
     @Test
-    void doOperationTest() {
+    void doOperationTest() throws BankException {
         account.setBalance(amount);
         new WithdrawOperation(account, amount);
         assertTrue(account.getBalance() == 0);

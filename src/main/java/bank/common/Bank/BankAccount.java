@@ -1,5 +1,6 @@
 package bank.common.Bank;
 
+import bank.common.BankExceptions.BankException;
 import bank.common.Operation.Operation;
 import bank.common.Product.IProduct;
 import bank.common.Product.Product;
@@ -17,7 +18,7 @@ public class BankAccount extends Product implements IAccount {
         innerProducts = new ArrayList<IProduct>();
     }
 
-    public void doOperation(Operation operation) {
+    public void doOperation(Operation operation) throws BankException {
         operation.execute(this);
         history.add(operation);
         Bank.getBankHistory().add(operation);

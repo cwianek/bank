@@ -2,6 +2,7 @@ package bank.common.Operation;
 
 import bank.common.Bank.BankAccount;
 import bank.common.Bank.IAccount;
+import bank.common.BankExceptions.BankException;
 import bank.common.Interest.LinearInterest;
 import bank.common.Product.IProduct;
 import bank.common.User;
@@ -22,7 +23,7 @@ public class CloseInvestmentOrCreditOperationTest {
     }
 
     @Test
-    void closeInvestmentOperationTest() {
+    void closeInvestmentOperationTest() throws BankException {
         account.setBalance(amount);
         new InvestmenOperation(account,amount, 2, new LinearInterest(rate));
         IProduct investment = account.getInnerProducts().get(0);
@@ -31,7 +32,7 @@ public class CloseInvestmentOrCreditOperationTest {
     }
 
     @Test
-    void closeCreditOperationTest() {
+    void closeCreditOperationTest() throws BankException {
         account.setBalance(amount);
         new CreditOperation(account,amount, 2, new LinearInterest(rate));
         IProduct credit = account.getInnerProducts().get(0);

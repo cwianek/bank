@@ -1,6 +1,7 @@
 package bank.common.Operation;
 
 import bank.common.Bank.IAccount;
+import bank.common.BankExceptions.BankException;
 import bank.common.Product.Credit;
 import bank.common.Product.IProduct;
 import bank.common.Product.Investment;
@@ -10,7 +11,7 @@ public class CloseInvestmentOrCreditOperation extends Operation {
     int productIdToClose;
     IAccount account;
 
-    public CloseInvestmentOrCreditOperation(IAccount account, int productIdToClose) {
+    public CloseInvestmentOrCreditOperation(IAccount account, int productIdToClose) throws BankException {
         super();
         this.account = account;
         this.productIdToClose = productIdToClose;
@@ -20,12 +21,16 @@ public class CloseInvestmentOrCreditOperation extends Operation {
     public void execute(IProduct product) {
         account.getInnerProducts().forEach((prod) -> {
             if(prod.getId() == productIdToClose){
-                changeAmount(prod);
+                try {
+                    changeAmount(prod);
+                } catch (BankException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    private float changeAmount(IProduct product) {
+    private float changeAmount(IProduct product) throws BankException {
         for (Operation operation : product.getOperationHistory().getOperationList()) {
             if (operation.type == OperationType.CREDIT_CREATE) {
                 ((Credit) product).setClosed(true);

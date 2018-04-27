@@ -1,5 +1,6 @@
 package bank.common.Bank;
 
+import bank.common.BankExceptions.BankException;
 import bank.common.Operation.TransferOperation;
 import bank.common.User;
 import org.junit.Before;
@@ -27,7 +28,7 @@ public class BankTest {
     }
 
     @Test
-    void bankHistoryTest() {
+    void bankHistoryTest() throws BankException {
         User user1 = new User(0);
         User user2 = new User(0);
         IAccount account1 = new BankAccount(user1);
