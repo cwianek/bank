@@ -1,4 +1,4 @@
-package bank.common.KIR;
+package bank.common.Bank;
 
 import bank.common.Bank.Bank;
 import bank.common.Operation.ExternalOperation;
@@ -18,13 +18,17 @@ public class Kir {
 
     private void execute()
     {
-        //TODO: implement here
+        for(ExternalOperation externalOperation: inputOperations){
+            externalOperation.execute(externalOperation.getDestination());
+            externalOperation.execute(externalOperation.getSource());
+        }
         inputOperations.clear();
         operationsMap.clear();
     }
 
     public void sendPackage(String bankId){
         Bank bank = bankMap.get(bankId);
+        execute();
     }
 
 }

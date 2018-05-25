@@ -2,7 +2,6 @@ package bank.common.Bank;
 
 import bank.common.Operation.OperationHistory;
 import bank.common.Raports.IRaport;
-import bank.common.Raports.Raport;
 import bank.common.User;
 
 import java.util.ArrayList;
@@ -49,7 +48,6 @@ public class Bank {
     private boolean ibanValidate()
     {
         return true;
-        //implement validation
     }
 
     public IAccount getAccount(User user){
@@ -60,6 +58,9 @@ public class Bank {
         return null;
     }
 
+    public String getIbanId() {
+        return ibanId;
+    }
 
     public static OperationHistory getBankHistory() {
         return bankHistory;

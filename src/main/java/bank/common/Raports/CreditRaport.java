@@ -23,14 +23,4 @@ public class CreditRaport implements IRaport {
         System.out.println(count);
         System.out.println(sum);
     }
-
-    @Override
-    public void Visit(Credit credit) {
-
-    }
-
-    @Override
-    public void Visit(Investment investment) {
-
-    }
 }
