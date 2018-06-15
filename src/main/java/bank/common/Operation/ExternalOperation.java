@@ -39,4 +39,14 @@ public abstract class ExternalOperation extends Operation {
     public IAccount getDestination() {
         return destination;
     }
+
+    public String getIbanDestination()
+    {
+        return ibanDestination;
+    }
+
+    public String getIbanSource()
+    {
+        return ibanSource;
+    }
 }

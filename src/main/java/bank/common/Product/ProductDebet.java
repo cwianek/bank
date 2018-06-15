@@ -64,7 +64,7 @@ public class ProductDebet implements IProduct{
                 debet += changeAmount;
             }
             else {
-                System.out.println("Nie masz hajsu biedaku... a mogles zostac programista");
+                System.out.println("Nie masz hajsu");
             }
         }
     }
