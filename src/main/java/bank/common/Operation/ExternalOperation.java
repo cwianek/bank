@@ -10,7 +10,7 @@ public abstract class ExternalOperation extends Operation {
 
     private String ibanSource;
     private String ibanDestination;
-    private IAccount source;
+    protected IAccount source;
     private IAccount destination;
 
     public ExternalOperation(Bank bankSource, IAccount source, Bank bankDestination, IAccount destination, float amount) {

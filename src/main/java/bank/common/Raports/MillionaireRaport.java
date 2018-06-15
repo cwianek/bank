@@ -19,14 +19,4 @@ public class MillionaireRaport implements IRaport {
         }
         System.out.println(count);
     }
-
-    @Override
-    public void Visit(Credit credit) {
-
-    }
-
-    @Override
-    public void Visit(Investment investment) {
-
-    }
 }
